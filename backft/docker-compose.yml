@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres:16-alpine
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=fretezon
+      - POSTGRES_USER=nicolas
+      - POSTGRES_PASSWORD=zon3101
+
+  app:
+    image: nicolaspimentel/django-ft
+    ports:
+      - 8080:8080
+    environment:
+        - DB_HOST=db
+        - DB_NAME=fretezon
+        - DB_USER=nicolas
+        - DB_PORT=5432
+        - DB_PASSWORD=zon3101
+    command: >
+      sh -c  "python manage.py migrate &&
+              python manage.py runserver 0.0.0.0:8080"
+    depends_on:
+      - db
