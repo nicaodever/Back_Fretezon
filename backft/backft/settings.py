@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'backft',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core'
 ]
 
 MIDDLEWARE = [
@@ -78,11 +78,14 @@ WSGI_APPLICATION = 'backft.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'db',
+        'HOST': 'localhost',
         'PORT': 5432,
-        'NAME': 'fretezon',
-        'USER': 'nicolas',
-        'PASSWORD': 'zon3101',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'admin123',
+        'OPTIONS': {
+            'options': '-c client_encoding=UTF8'
+        }
     }
 }
 
@@ -117,6 +120,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+AUTH_USER_MODEL = 'core.User'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
