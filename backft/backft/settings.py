@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'backft.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': 5432,
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'admin123',
+        'NAME': 'fretezon',
+        'USER': 'nicolas',
+        'PASSWORD': 'zon123',
         'OPTIONS': {
             'options': '-c client_encoding=UTF8'
         }

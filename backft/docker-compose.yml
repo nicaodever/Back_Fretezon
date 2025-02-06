@@ -4,20 +4,20 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=teste123
+      - POSTGRES_DB=fretezon
+      - POSTGRES_USER=nicolas
+      - POSTGRES_PASSWORD=zon123
 
   app:
-    image: nicolaspimentel/django-ft
+    image: nicolaspimentel/fretecore
     ports:
       - 8080:8080
     environment:
         - DB_HOST=db
-        - DB_NAME=postgres
-        - DB_USER=postgres
         - DB_PORT=5432
-        - DB_PASSWORD=teste123
+        - DB_NAME=fretezon
+        - DB_USER=nicolas
+        - DB_PASSWORD=zon123
     command: >
       sh -c  "python manage.py migrate &&
               python manage.py runserver 0.0.0.0:8080"
